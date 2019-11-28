@@ -1,0 +1,29 @@
+.AddDrawing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.AddDrawing-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.AddDrawing-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.AddDrawing-row-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddDrawing-button-container {
+    display: flex;
+    flex-direction: row;
+}

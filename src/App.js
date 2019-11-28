@@ -1,11 +1,11 @@
 import React from 'react';
-import DrawableCanvas from './DrawableCanvas';
+import AddDrawing from './AddDrawing'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <DrawableCanvas/>
+      <AddDrawing/>
     </div>
   );
 }
