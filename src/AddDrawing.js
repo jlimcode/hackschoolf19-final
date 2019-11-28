@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DrawableCanvas from "./DrawableCanvas";
-import "./AddDrawing.css"
+import "./AddDrawing.css";
 
 class AddDrawing extends Component {
   constructor(props) {
@@ -28,8 +28,20 @@ class AddDrawing extends Component {
     }
   }
 
-  handleSubmit() {
-    //TODO Handle submit function
+  async handleSubmit() {
+    const canvas = this.canvasRef.current;
+    const blob = await canvas.getPNGBlob();
+    console.log(blob);
+    const res = await fetch("/picture", {
+      method: "POST",
+      body: blob
+      // body: {
+      //   // professor: this.state.professor,
+      //   // artist: this.state.artist,
+      //   image: blob,
+      // }
+    });
+    console.log(res); 
   }
 
   render() {
@@ -57,7 +69,7 @@ class AddDrawing extends Component {
             <button className="AddDrawing-button" onClick={this.handleClear}>
               Clear
             </button>
-            <button className="AddDrawing-button" onClick={this.handleSubmit}>
+            <button className="AddDrawing-button" onClick={this.handleSubmit.bind(this)}>
               Submit
             </button>
           </div>
