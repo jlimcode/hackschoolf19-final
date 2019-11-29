@@ -1,0 +1,10 @@
+.Drawing-container {
+  background-color: gainsboro;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+.Drawing-image {
+  background: white;
+  border-radius: 15px;
+}

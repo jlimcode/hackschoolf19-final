@@ -1,8 +1,9 @@
 .AddDrawing {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 2px solid black;
+    background-color: gainsboro;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .AddDrawing-toolbar {
@@ -16,6 +17,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    height: 40px;
 }
 
 .AddDrawing-row-container {
@@ -23,7 +25,25 @@
     flex-direction: column;
 }
 
+.AddDrawing-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .AddDrawing-button-container {
     display: flex;
     flex-direction: row;
+    margin: auto;
+}
+
+.AddDrawing-button {
+    margin: 5px;
+    padding: 8px;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.AddDrawing-button:hover {
+    cursor: pointer;
 }

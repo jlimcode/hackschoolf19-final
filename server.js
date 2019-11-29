@@ -10,10 +10,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/picture", (req, res) => {
-  res.json(drawings);
+  const pictureMeta = drawings.map(drawObj => {
+    let drawMeta = {};
+    drawMeta.artist = drawObj.artist;
+    drawMeta.id = drawObj.id;
+    drawMeta.professor = drawObj.professor;
+    return drawMeta;
+  });
+  res.json(pictureMeta);
 });
 
-app.get("/picture/:id", (req, res) => {});
+app.get("/picture/:id", (req, res) => {
+  const index = req.params.id;
+  res.setHeader("Content-type", "image/png");
+  res.send(drawings[index].image);
+});
 
 app.post("/picture", express.raw({ type: "image/*" }), (req, res) => {
   const newArtist = req.query.artist;
