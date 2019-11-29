@@ -16,19 +16,20 @@ app.get("/picture", (req, res) => {
 app.get("/picture/:id", (req, res) => {});
 
 app.post("/picture", express.raw({ type: "image/*" }), (req, res) => {
-  const pic = req.body.image;
-  const artist = req.body.artist;
-  const professor = req.body.prof;
+  const newArtist = req.query.artist;
+  const newProfessor = req.query.professor;
   const newId = drawings.length;
 
   drawings.push({
     id: newId,
-    image: req.body
+    image: req.body,
+    artist: newArtist,
+    professor: newProfessor
   });
 
   res.json({ id: newId });
 
-  console.log(drawings[newId])
+  console.log(drawings[newId]);
 });
 
 app.listen(9000);

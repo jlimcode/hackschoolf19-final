@@ -31,17 +31,15 @@ class AddDrawing extends Component {
   async handleSubmit() {
     const canvas = this.canvasRef.current;
     const blob = await canvas.getPNGBlob();
-    console.log(blob);
-    const res = await fetch("/picture", {
+    const params = new URLSearchParams();
+    params.set("professor", this.state.professor);
+    params.set("artist", this.state.artist);
+    const res = await fetch("/picture?" + params.toString(), {
       method: "POST",
       body: blob
-      // body: {
-      //   // professor: this.state.professor,
-      //   // artist: this.state.artist,
-      //   image: blob,
-      // }
     });
     console.log(res); 
+    this.handleClear();
   }
 
   render() {
