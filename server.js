@@ -3,6 +3,8 @@ const app = express();
 
 const drawings = [];
 
+const port = process.env.PORT || 9000;
+
 app.use(express.static(__dirname + "/build"));
 
 app.get("/", (req, res) => {
@@ -43,5 +45,6 @@ app.post("/picture", express.raw({ type: "image/*" }), (req, res) => {
   console.log(drawings[newId]);
 });
 
-app.listen(9000);
-console.log("Listening on port 9000.");
+app.listen(port, () => {
+  console.log('App is running on http://localhost:' + port);
+});
