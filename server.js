@@ -5,7 +5,7 @@ const port = process.env.PORT || 9000;
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./hackschool-final-firebase-adminsdk.json");
+var serviceAccount = process.env.FIREBASE_KEY;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
