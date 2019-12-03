@@ -38,8 +38,9 @@ class AddDrawing extends Component {
       method: "POST",
       body: blob
     });
-    console.log(res); 
+    console.log(res);
     this.handleClear();
+    this.setState({ artist: "", professor: "" });
   }
 
   render() {
@@ -52,6 +53,7 @@ class AddDrawing extends Component {
               <p className="AddDrawing-text">Professor</p>
               <input
                 className="AddDrawing-input"
+                value={this.state.professor}
                 onChange={this.handleProfessorInput.bind(this)}
               ></input>
             </div>
@@ -59,6 +61,7 @@ class AddDrawing extends Component {
               <p className="AddDrawing-text">Artist</p>
               <input
                 className="AddDrawing-input"
+                value={this.state.artist}
                 onChange={this.handleArtistInput.bind(this)}
               ></input>
             </div>
@@ -67,7 +70,10 @@ class AddDrawing extends Component {
             <button className="AddDrawing-button" onClick={this.handleClear}>
               Clear
             </button>
-            <button className="AddDrawing-button" onClick={this.handleSubmit.bind(this)}>
+            <button
+              className="AddDrawing-button"
+              onClick={this.handleSubmit.bind(this)}
+            >
               Submit
             </button>
           </div>
