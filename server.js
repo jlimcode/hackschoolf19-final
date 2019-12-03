@@ -3,9 +3,9 @@ const app = express();
 
 const port = process.env.PORT || 9000;
 
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
 
-var serviceAccount = require("./hackschool-final-firebase-adminsdk.json");
+const serviceAccount = require("./hackschool-final-firebase-adminsdk.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
